@@ -1,0 +1,34 @@
+{
+  "name": "markdown-magic-pulpo-schema",
+  "version": "1.0.0",
+  "description": "Document configurations built with Pulpo",
+  "main": "index.js",
+  "scripts": {
+    "docs": "node example.js",
+    "prepublish": "npm run docs"
+  },
+  "keywords": [
+    "markdown-magic",
+    "pulpo",
+    "configuration",
+    "config",
+    "plugin"
+  ],
+  "author": "Patrick Camacho <patrick@daftdevelopers.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "markdown-magic": "^0.1.6",
+    "pulpo": "^1.3.2"
+  },
+  "peerDependencies": {
+    "pulpo": "^1.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camacho/markdown-magic-pulpo-schema.git"
+  },
+  "bugs": {
+    "url": "https://github.com/camacho/markdown-magic-pulpo-schema/issues"
+  },
+  "homepage": "https://github.com/camacho/markdown-magic-pulpo-schema#readme"
+}
