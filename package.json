@@ -1,28 +1,8 @@
 {
   "name": "markdown-magic-pulpo-schema",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Document configurations built with Pulpo",
-  "main": "index.js",
-  "scripts": {
-    "docs": "node example.js",
-    "prepublish": "npm run docs"
-  },
-  "keywords": [
-    "markdown-magic",
-    "pulpo",
-    "configuration",
-    "config",
-    "plugin"
-  ],
-  "author": "Patrick Camacho <patrick@daftdevelopers.com>",
   "license": "MIT",
-  "devDependencies": {
-    "markdown-magic": "^0.1.6",
-    "pulpo": "^1.3.2"
-  },
-  "peerDependencies": {
-    "pulpo": "^1.3.2"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/camacho/markdown-magic-pulpo-schema.git"
@@ -30,5 +10,28 @@
   "bugs": {
     "url": "https://github.com/camacho/markdown-magic-pulpo-schema/issues"
   },
-  "homepage": "https://github.com/camacho/markdown-magic-pulpo-schema#readme"
+  "homepage": "https://github.com/camacho/markdown-magic-pulpo-schema#readme",
+  "author": "Patrick Camacho <patrick@daftdevelopers.com>",
+  "keywords": [
+    "markdown-magic",
+    "pulpo",
+    "configuration",
+    "config",
+    "plugin"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "docs": "node example.js",
+    "format": "prettier --single-quote --trailing-comma es5 --write index.js example.js",
+    "prepublish": "npm run docs"
+  },
+  "peerDependencies": {
+    "pulpo": "^1.3.2",
+    "markdown-magic": ">=0.1 <=2.x"
+  },
+  "devDependencies": {
+    "markdown-magic": "^2.0.0",
+    "pulpo": "^1.4.2",
+    "prettier": "^2.0.0"
+  }
 }
