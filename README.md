@@ -13,43 +13,50 @@ npm i markdown-magic markdown-magic-install-command --save-dev
 See `example.js` for usage.
 
 <!-- AUTO-GENERATED-CONTENT:START (CODE:src=./example.js) -->
-<!-- The below code snippet is automatically added from ./example.js -->
+
 ```js
-const Pulpo = require('pulpo');
-const path = require('path');
-const markdownMagic = require('markdown-magic');
+import path from 'path';
+import Pulpo from 'pulpo';
+import { markdownMagic } from 'markdown-magic';
+import SCHEMA from './index.js';
 
 const config = {
+  matchWord: 'AUTO-GENERATED-CONTENT',
   transforms: {
-    SCHEMA: require('./index.js')(new Pulpo({
-      host: {
-        description: 'Host for the server',
-        type: 'string',
-        default: 'localhost',
-        argv: 'host'
-      },
-      port: {
-        description: 'Port for dev server to run on',
-        type: 'number',
-        default: '3000',
-        env: 'PORT'
-      }
-    }))
-  }
-}
+    SCHEMA: SCHEMA(
+      new Pulpo({
+        host: {
+          description: 'Host for the server',
+          type: 'string',
+          default: 'localhost',
+          argv: 'host',
+        },
+        port: {
+          description: 'Port for dev server to run on',
+          type: 'number',
+          default: '3000',
+          env: 'PORT',
+        },
+      }),
+    ),
+  },
+};
 
-const markdownPath = path.join(__dirname, 'README.md');
-markdownMagic(markdownPath, config);
+const markdownPath = path.join(import.meta.dirname, 'README.md');
+await markdownMagic(markdownPath, config);
 ```
+
 <!-- AUTO-GENERATED-CONTENT:END *-->
 
 ## Usage in markdown
 
 <!-- AUTO-GENERATED-CONTENT:START (SCHEMA) -->
-* **host** (string) - Host for the server
-  * *default* - localhost
-  * *argv* - host
-* **port** (number) - Port for dev server to run on
-  * *default* - 3000
-  * *env* - PORT
+
+- **host** (string) - Host for the server
+  - _default_ - localhost
+  - _argv_ - host
+- **port** (number) - Port for dev server to run on
+  - _default_ - 3000
+  - _env_ - PORT
+
 <!-- AUTO-GENERATED-CONTENT:END -->
