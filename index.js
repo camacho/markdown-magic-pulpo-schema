@@ -1,26 +1,26 @@
-const fs = require('fs');
-const path = require('path');
+export default function factory(schema) {
+  return function SCHEMA({ content }) {
+    const definition = schema.document();
+    const keys = Object.keys(definition);
 
-module.exports = function factory(schema) {
-  return function SCHEMA() {
-    const options = schema.document();
-    const output = Object.keys(options).map((key) => {
-      const option = options[key];
+    if (keys.length === 0) return content;
 
-      const content = [
-        `* **${key}** (${option.type}) - ${option.description}`,
-      ];
+    const output = keys.map((key) => {
+      const option = definition[key];
 
-      return content.concat(
-        Object
-          .keys(option)
-          .filter(
-            optionKey => ['type', 'description'].indexOf(optionKey) === -1
-          )
-          .map(optionKey => `  * *${optionKey}* - ${option[optionKey]}`)
-      ).join('\n');
+      const lines = [`* **${key}** (${option.type}) - ${option.description}`];
+
+      return lines
+        .concat(
+          Object.keys(option)
+            .filter(
+              (optionKey) => ['type', 'description'].indexOf(optionKey) === -1,
+            )
+            .map((optionKey) => `  * *${optionKey}* - ${option[optionKey]}`),
+        )
+        .join('\n');
     });
 
     return output.join('\n');
-  }
+  };
 }
